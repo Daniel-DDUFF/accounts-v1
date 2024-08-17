@@ -38,6 +38,12 @@ public class AccountsController {
 		return accountsService.getAllAccounts();
 	}
 
+	@Operation(summary = "create multi accounts")
+	@PostMapping("/newAccounts")
+	public List<String> createMultiAccounts(@RequestBody List<Accounts> accountsList) {
+		return accountsService.saveAll(accountsList);
+	}
+
 	@Operation(summary = "create a new account")
 	@PostMapping("/newAccount")
 	public String newAccount(@RequestBody Accounts accounts){
